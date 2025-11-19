@@ -64,13 +64,13 @@ const ContextSection = () => {
           ].map((item, index) => (
             <div
               key={index}
-              className={`bg-card rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 ${
-                isVisible ? "animate-fade-in-up" : "opacity-0"
+              className={`bg-card rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 ${
+                isVisible ? "animate-scale-fade-in" : "opacity-0"
               }`}
               style={{ animationDelay: item.delay }}
             >
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <item.icon className="w-8 h-8 text-primary" />
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-500 group-hover:scale-110">
+                <item.icon className="w-8 h-8 text-primary transition-transform duration-500" />
               </div>
               <h3 className="font-playfair text-xl font-semibold text-center mb-2">
                 {item.title}
