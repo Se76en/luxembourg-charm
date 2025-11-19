@@ -71,14 +71,14 @@ const JustificationSection = () => {
           {reasons.map((reason, index) => (
             <div
               key={index}
-              className={`bg-card rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 ${
-                isVisible ? "animate-fade-in-up" : "opacity-0"
+              className={`bg-card rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] ${
+                isVisible ? "animate-fade-in-up-subtle" : "opacity-0"
               }`}
-              style={{ animationDelay: `${index * 0.2}s` }}
+              style={{ animationDelay: `${index * 0.15}s` }}
             >
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <Check className="w-6 h-6 text-secondary" />
+                <div className="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1 transition-all duration-500 hover:scale-110 hover:bg-secondary/30">
+                  <Check className="w-6 h-6 text-secondary transition-transform duration-500" />
                 </div>
                 <div>
                   <h3 className="font-playfair text-xl font-semibold text-foreground mb-3">

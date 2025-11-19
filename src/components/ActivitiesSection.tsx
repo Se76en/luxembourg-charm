@@ -82,11 +82,11 @@ const ActivitiesSection = () => {
                 <img
                   src={activity.image}
                   alt={activity.title}
-                  className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-80 object-cover transition-all duration-700 ease-out group-hover:scale-110 group-hover:brightness-110"
                 />
               </div>
-              <div className="md:w-1/2 bg-card rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300">
-                <h3 className="font-playfair text-2xl md:text-3xl font-semibold text-primary mb-4">
+              <div className="md:w-1/2 bg-card rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+                <h3 className="font-playfair text-2xl md:text-3xl font-semibold text-primary mb-4 transition-colors duration-300">
                   {activity.title}
                 </h3>
                 <p className="font-inter text-lg leading-relaxed text-foreground">
