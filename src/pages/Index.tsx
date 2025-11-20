@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import ContextSection from "@/components/ContextSection";
 import ActivitiesSection from "@/components/ActivitiesSection";
 import JustificationSection from "@/components/JustificationSection";
+import SitographieSection from "@/components/SitographieSection";
 import ScrollToTop from "@/components/ScrollToTop";
 import Footer from "@/components/Footer";
 
@@ -15,6 +16,7 @@ const Index = () => {
         <ContextSection />
         <ActivitiesSection />
         <JustificationSection />
+        <SitographieSection />
       </main>
       <Footer />
       <ScrollToTop />
