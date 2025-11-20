@@ -1,7 +1,9 @@
 import { Heart } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import heroImage from "@/assets/luxembourg-hero.jpg";
 
 const Hero = () => {
+  const { t } = useLanguage();
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -19,15 +21,15 @@ const Hero = () => {
         </div>
         
         <h1 className="font-playfair text-5xl md:text-7xl font-bold text-foreground mb-6 animate-fade-blur-in tracking-tight hover:tracking-wide transition-all duration-700">
-          Ma Destination Francophone Favorite
+          {t("hero.title")}
         </h1>
         
         <h2 className="font-playfair text-3xl md:text-5xl text-primary mb-8 animate-fade-blur-in hover:text-primary/80 transition-colors duration-500" style={{ animationDelay: "0.3s" }}>
-          Le Luxembourg
+          {t("hero.subtitle")}
         </h2>
         
         <p className="font-inter text-xl md:text-2xl text-muted-foreground animate-fade-in-up-subtle leading-relaxed hover:text-foreground transition-colors duration-500" style={{ animationDelay: "0.6s" }}>
-          Un petit pays avec un grand charme francophone.
+          {t("hero.tagline")}
         </p>
 
       </div>
