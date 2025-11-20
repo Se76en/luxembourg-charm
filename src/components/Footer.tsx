@@ -13,8 +13,10 @@ const Footer = () => {
         
         <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-6"></div>
         
-        <p className="font-inter text-sm text-background/60">
-          Présentation scolaire - {new Date().getFullYear()}
+        <p className="font-inter text-sm text-background/60 flex items-center justify-center gap-2">
+          Fabriqué avec 
+          <span className="text-red-500 animate-pulse inline-block">❤️</span>
+          par Iurascu Iulian
         </p>
       </div>
     </footer>
