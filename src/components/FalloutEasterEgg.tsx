@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-
+import { Radiation } from "lucide-react";
 const FalloutEasterEgg = () => {
   const [sequence, setSequence] = useState("");
   const [isActive, setIsActive] = useState(false);
@@ -21,18 +21,6 @@ const FalloutEasterEgg = () => {
     window.addEventListener("keypress", handleKeyPress);
     return () => window.removeEventListener("keypress", handleKeyPress);
   }, [sequence]);
-
-  useEffect(() => {
-    if (isActive) {
-      document.body.classList.add("fallout-mode");
-    } else {
-      document.body.classList.remove("fallout-mode");
-    }
-
-    return () => {
-      document.body.classList.remove("fallout-mode");
-    };
-  }, [isActive]);
 
   const playWithFadeIn = () => {
     if (!audioRef.current) return;
@@ -70,11 +58,19 @@ const FalloutEasterEgg = () => {
   };
 
   return (
-    <audio
-      ref={audioRef}
-      src="/fallout-easter-egg.mp3"
-      preload="auto"
-    />
+    <>
+      <audio
+        ref={audioRef}
+        src="/fallout-easter-egg.mp3"
+        preload="auto"
+      />
+      {isActive && (
+        <div className="fixed bottom-4 right-4 z-50 rounded-full bg-card/80 border border-border shadow-lg px-3 py-2 flex items-center gap-2 text-xs md:text-sm backdrop-blur-sm">
+          <Radiation className="w-4 h-4 text-secondary" aria-hidden="true" />
+          <span className="text-foreground">Mode Fallout activé</span>
+        </div>
+      )}
+    </>
   );
 };
 
