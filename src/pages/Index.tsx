@@ -6,6 +6,7 @@ import JustificationSection from "@/components/JustificationSection";
 import SitographieSection from "@/components/SitographieSection";
 import ScrollToTop from "@/components/ScrollToTop";
 import Footer from "@/components/Footer";
+import FalloutEasterEgg from "@/components/FalloutEasterEgg";
 
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
       </main>
       <Footer />
       <ScrollToTop />
+      <FalloutEasterEgg />
     </div>
   );
 };
