@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 const FalloutEasterEgg = () => {
   const [sequence, setSequence] = useState("");
+  const [isActive, setIsActive] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const fadeIntervalRef = useRef<number | null>(null);
 
@@ -12,6 +13,7 @@ const FalloutEasterEgg = () => {
 
       if (newSequence === "fallout") {
         playWithFadeIn();
+        setIsActive(true);
         setSequence(""); // Reset after trigger
       }
     };
@@ -19,6 +21,21 @@ const FalloutEasterEgg = () => {
     window.addEventListener("keypress", handleKeyPress);
     return () => window.removeEventListener("keypress", handleKeyPress);
   }, [sequence]);
+
+  useEffect(() => {
+    if (isActive) {
+      document.body.style.filter = "grayscale(1)";
+      document.body.style.transition = "filter 3s ease-in-out";
+    } else {
+      document.body.style.filter = "";
+      document.body.style.transition = "";
+    }
+
+    return () => {
+      document.body.style.filter = "";
+      document.body.style.transition = "";
+    };
+  }, [isActive]);
 
   const playWithFadeIn = () => {
     if (!audioRef.current) return;
