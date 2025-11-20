@@ -73,25 +73,11 @@ const FalloutEasterEgg = () => {
   };
 
   return (
-    <>
-      <audio
-        ref={audioRef}
-        src="/fallout-easter-egg.mp3"
-        preload="auto"
-      />
-      {isActive && (
-        <div className="fixed bottom-4 right-4 z-50 animate-fade-in">
-          <div className="bg-primary/90 backdrop-blur-sm rounded-full p-3 shadow-lg animate-pulse">
-            {/* Replace /vault-boy.gif with your own Vault Boy GIF in the public folder */}
-            <img 
-              src="/vault-boy.gif" 
-              alt="Vault Boy" 
-              className="w-12 h-12 object-contain"
-            />
-          </div>
-        </div>
-      )}
-    </>
+    <audio
+      ref={audioRef}
+      src="/fallout-easter-egg.mp3"
+      preload="auto"
+    />
   );
 };
 
