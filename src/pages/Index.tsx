@@ -5,14 +5,11 @@ import ActivitiesSection from "@/components/ActivitiesSection";
 import JustificationSection from "@/components/JustificationSection";
 import SitographieSection from "@/components/SitographieSection";
 import ScrollToTop from "@/components/ScrollToTop";
-import ScrollProgressBar from "@/components/ScrollProgressBar";
-import LanguageToggle from "@/components/LanguageToggle";
 import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background font-inter">
-      <ScrollProgressBar />
       <Navigation />
       <main>
         <Hero />
@@ -23,7 +20,6 @@ const Index = () => {
       </main>
       <Footer />
       <ScrollToTop />
-      <LanguageToggle />
     </div>
   );
 };
