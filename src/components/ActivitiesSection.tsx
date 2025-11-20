@@ -81,14 +81,14 @@ const ActivitiesSection = () => {
               }`}
               style={{ transitionDelay: `${index * 0.2}s` }}
             >
-              <div className="md:w-1/2 overflow-hidden rounded-3xl shadow-2xl group">
+              <div className="md:w-1/2 overflow-hidden rounded-3xl shadow-2xl group transition-all duration-500 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] hover:-translate-y-1">
                 <img
                   src={activity.image}
                   alt={activity.title}
-                  className="w-full h-80 object-cover transition-all duration-700 ease-out group-hover:scale-110 group-hover:brightness-110"
+                  className="w-full h-80 object-cover transition-all duration-700 ease-out group-hover:scale-105"
                 />
               </div>
-              <div className="md:w-1/2 relative bg-card rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] border border-secondary/10 hover:border-secondary/30 overflow-hidden">
+              <div className="md:w-1/2 relative bg-card rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 border border-secondary/10 hover:border-secondary/30 overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-secondary/10 to-primary/10 rounded-full blur-3xl"></div>
                 
                 <div className="relative">
