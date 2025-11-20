@@ -79,13 +79,18 @@ const FalloutEasterEgg = () => {
         src="/fallout-easter-egg.mp3"
         preload="auto"
       />
-      {isActive && (
-        <div className="fixed bottom-4 right-4 z-50 animate-fade-in">
-          <div className="bg-primary/90 backdrop-blur-sm rounded-full p-3 shadow-lg animate-pulse">
-            <span className="text-3xl">👍</span>
-          </div>
+      <div className="fixed bottom-4 right-4 z-50">
+        <div 
+          className={`rounded-full p-3 shadow-lg transition-all duration-500 ${
+            isActive 
+              ? 'bg-primary/90 backdrop-blur-sm animate-pulse scale-110' 
+              : 'bg-muted/50 backdrop-blur-sm opacity-70 hover:opacity-100'
+          }`}
+        >
+          {/* Replace with: <img src="/vault-boy.gif" alt="Vault Boy" className="w-8 h-8" /> */}
+          <span className="text-3xl">👍</span>
         </div>
-      )}
+      </div>
     </>
   );
 };
