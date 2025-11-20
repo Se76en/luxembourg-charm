@@ -111,20 +111,18 @@ const JustificationSection = () => {
             </div>
             
             <p className="font-inter text-xl md:text-2xl leading-relaxed text-foreground font-medium mb-6">
-              "Le Luxembourg m'inspire par sa capacité à préserver son patrimoine historique 
-              tout en embrassant la modernité. C'est une destination qui prouve qu'un petit 
-              pays peut avoir une grande âme."
+              "J'aime beaucoup le Luxembourg parce qu'il garde son histoire ancienne 
+              tout en étant moderne. Ça montre qu'un petit pays peut être vraiment spécial."
             </p>
             
             <p className="font-inter text-xl md:text-2xl leading-relaxed text-foreground font-medium mb-6">
-              "C'est un lieu où l'histoire rencontre l'avenir européen, où le français 
-              résonne dans chaque rue. L'accueil chaleureux des Luxembourgeois rend 
-              l'expérience encore plus enrichissante."
+              "C'est un endroit où le passé et le futur se mélangent. On parle français partout 
+              dans les rues et les gens sont très accueillants."
             </p>
             
             <p className="font-inter text-xl md:text-2xl leading-relaxed text-foreground font-medium">
-              "Pour moi, le Luxembourg représente la destination francophone idéale : 
-              accessible, enrichissante, fascinante et inoubliable."
+              "Pour moi, c'est la destination francophone parfaite : 
+              facile d'accès, intéressante et vraiment mémorable."
             </p>
             
             <div className="flex items-center justify-center gap-4 mt-8">
