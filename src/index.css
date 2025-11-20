@@ -129,33 +129,3 @@ All colors MUST be HSL.
     @apply transition-transform duration-500 ease-out;
   }
 }
-
-/* Fallout easter egg global styles */
-body.fallout-mode {
-  filter: grayscale(1);
-  transition: filter 0.8s ease-in-out;
-}
-
-body.fallout-mode::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 50;
-  background-image:
-    linear-gradient(hsl(0 0% 0% / 0.2) 1px, transparent 1px),
-    linear-gradient(90deg, hsl(0 0% 0% / 0.2) 1px, transparent 1px);
-  background-size: 100% 2px, 2px 100%;
-  mix-blend-mode: multiply;
-  opacity: 0.35;
-  animation: fallout-grain 0.7s steps(2) infinite;
-}
-
-@keyframes fallout-grain {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-2px, 1px, 0);
-  }
-}

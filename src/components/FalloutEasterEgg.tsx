@@ -24,13 +24,16 @@ const FalloutEasterEgg = () => {
 
   useEffect(() => {
     if (isActive) {
-      document.body.classList.add("fallout-mode");
+      document.body.style.filter = "grayscale(1)";
+      document.body.style.transition = "filter 3s ease-in-out";
     } else {
-      document.body.classList.remove("fallout-mode");
+      document.body.style.filter = "";
+      document.body.style.transition = "";
     }
 
     return () => {
-      document.body.classList.remove("fallout-mode");
+      document.body.style.filter = "";
+      document.body.style.transition = "";
     };
   }, [isActive]);
 
