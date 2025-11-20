@@ -118,4 +118,13 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Subtle global transitions */
+  a, button {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  img {
+    @apply transition-transform duration-500 ease-out;
+  }
 }
