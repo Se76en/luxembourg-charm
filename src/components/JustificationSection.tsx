@@ -96,38 +96,42 @@ const JustificationSection = () => {
         </div>
 
         <div
-          className={`relative bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 rounded-3xl p-8 md:p-12 shadow-lg text-center border border-primary/20 overflow-hidden transition-all duration-1000 ${
+          className={`relative bg-gradient-to-br from-primary/20 via-accent/20 to-secondary/20 rounded-3xl p-10 md:p-16 shadow-2xl text-center border-2 border-primary/40 overflow-hidden transition-all duration-1000 ${
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
           }`}
           style={{ transitionDelay: "0.8s" }}
         >
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-full blur-3xl animate-pulse"></div>
           
           <div className="relative">
-            <div className="w-1 h-12 bg-gradient-to-b from-transparent via-primary to-transparent mx-auto mb-6"></div>
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <div className="w-16 h-1 bg-gradient-to-r from-transparent via-primary to-primary rounded-full"></div>
+              <div className="w-3 h-3 bg-primary rounded-full"></div>
+              <div className="w-16 h-1 bg-gradient-to-l from-transparent via-primary to-primary rounded-full"></div>
+            </div>
             
-            <p className="font-inter text-lg md:text-xl leading-relaxed text-foreground italic mb-6">
-              "Le Luxembourg m'inspire profondément par sa capacité remarquable à préserver 
-              son riche patrimoine historique tout en embrassant pleinement la modernité et 
-              l'innovation. C'est une destination fascinante qui prouve brillamment qu'un 
-              petit pays peut avoir une très grande âme et un impact considérable."
+            <p className="font-inter text-xl md:text-2xl leading-relaxed text-foreground font-medium mb-6">
+              "Le Luxembourg m'inspire par sa capacité à préserver son patrimoine historique 
+              tout en embrassant la modernité. C'est une destination qui prouve qu'un petit 
+              pays peut avoir une grande âme."
             </p>
             
-            <p className="font-inter text-lg md:text-xl leading-relaxed text-foreground italic mb-6">
-              "C'est un lieu unique où l'histoire millénaire rencontre l'avenir européen, 
-              où le français résonne harmonieusement dans chaque rue pavée, chaque café 
-              pittoresque et chaque institution. La gentillesse des Luxembourgeois et 
-              leur ouverture d'esprit rendent l'expérience encore plus enrichissante."
+            <p className="font-inter text-xl md:text-2xl leading-relaxed text-foreground font-medium mb-6">
+              "C'est un lieu où l'histoire rencontre l'avenir européen, où le français 
+              résonne dans chaque rue. L'accueil chaleureux des Luxembourgeois rend 
+              l'expérience encore plus enrichissante."
             </p>
             
-            <p className="font-inter text-lg md:text-xl leading-relaxed text-foreground italic">
-              "Pour moi, le Luxembourg représente l'essence même d'une destination 
-              francophone idéale : géographiquement accessible, culturellement enrichissante, 
-              historiquement fascinante, et humainement inoubliable. C'est une perle rare 
-              au cœur de l'Europe qui mérite d'être découverte et célébrée."
+            <p className="font-inter text-xl md:text-2xl leading-relaxed text-foreground font-medium">
+              "Pour moi, le Luxembourg représente la destination francophone idéale : 
+              accessible, enrichissante, fascinante et inoubliable."
             </p>
             
-            <div className="w-1 h-12 bg-gradient-to-b from-primary to-transparent mx-auto mt-6"></div>
+            <div className="flex items-center justify-center gap-4 mt-8">
+              <div className="w-16 h-1 bg-gradient-to-r from-transparent via-primary to-primary rounded-full"></div>
+              <div className="w-3 h-3 bg-primary rounded-full"></div>
+              <div className="w-16 h-1 bg-gradient-to-l from-transparent via-primary to-primary rounded-full"></div>
+            </div>
           </div>
         </div>
       </div>
