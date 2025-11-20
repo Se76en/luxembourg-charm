@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ExternalLink, Book, Globe, Library } from "lucide-react";
+import { ExternalLink, Book, Globe, Library, Image, Castle } from "lucide-react";
 
 const SitographieSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -48,6 +48,20 @@ const SitographieSection = () => {
       icon: Library,
       color: "accent",
     },
+    {
+      title: "Google Images",
+      url: "https://images.google.com",
+      description: "Source d'images authentiques utilisées pour illustrer les attractions et paysages luxembourgeois présentés sur cette page.",
+      icon: Image,
+      color: "primary",
+    },
+    {
+      title: "Château de Vianden",
+      url: "https://castle-vianden.lu/gb/",
+      description: "Site officiel du Château de Vianden, l'une des plus belles résidences féodales de l'époque romane et gothique en Europe.",
+      icon: Castle,
+      color: "secondary",
+    },
   ];
 
   return (
@@ -71,7 +85,7 @@ const SitographieSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8">
           {sources.map((source, index) => (
             <a
               key={index}
