@@ -15,7 +15,7 @@ const Footer = () => {
         
         <p className="font-inter text-sm text-background/60 flex items-center justify-center gap-2">
           Fabriqué avec 
-          <span className="text-red-500 animate-pulse inline-block">❤️</span>
+          <span className="text-red-500 animate-heartbeat inline-block">❤️</span>
           par Iurascu Iulian
         </p>
       </div>

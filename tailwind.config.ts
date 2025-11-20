@@ -148,6 +148,23 @@ export default {
             transform: "translateY(-20px)",
           },
         },
+        "heartbeat": {
+          "0%, 100%": {
+            transform: "scale(1)",
+          },
+          "10%": {
+            transform: "scale(1.2)",
+          },
+          "20%": {
+            transform: "scale(1)",
+          },
+          "30%": {
+            transform: "scale(1.3)",
+          },
+          "40%": {
+            transform: "scale(1)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -158,6 +175,7 @@ export default {
         "scale-fade-in": "scale-fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
         "bounce-gentle": "bounce-gentle 2s ease-in-out infinite",
         "float": "float 3s ease-in-out infinite",
+        "heartbeat": "heartbeat 1.5s ease-in-out infinite",
       },
     },
   },
