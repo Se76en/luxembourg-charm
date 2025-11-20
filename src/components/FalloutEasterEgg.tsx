@@ -73,11 +73,20 @@ const FalloutEasterEgg = () => {
   };
 
   return (
-    <audio
-      ref={audioRef}
-      src="/fallout-easter-egg.mp3"
-      preload="auto"
-    />
+    <>
+      <audio
+        ref={audioRef}
+        src="/fallout-easter-egg.mp3"
+        preload="auto"
+      />
+      {isActive && (
+        <div className="fixed bottom-4 right-4 z-50 animate-fade-in">
+          <div className="bg-primary/90 backdrop-blur-sm rounded-full p-3 shadow-lg animate-pulse">
+            <span className="text-3xl">👍</span>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
