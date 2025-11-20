@@ -27,58 +27,94 @@ const FalloutEasterEgg = () => {
       document.body.style.filter = "grayscale(1)";
       document.body.style.transition = "filter 3s ease-in-out";
       
-      // Add film grain overlay
+      // Add film grain overlay with canvas-based noise
       const grainOverlay = document.createElement('div');
       grainOverlay.id = 'fallout-grain';
       grainOverlay.style.cssText = `
         position: fixed;
         top: 0;
         left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.12;
+        background: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(0, 0, 0, 0.03) 2px,
+          rgba(0, 0, 0, 0.03) 4px
+        );
+        mix-blend-mode: multiply;
+      `;
+      
+      // Create animated noise
+      const canvas = document.createElement('canvas');
+      canvas.width = 200;
+      canvas.height = 200;
+      canvas.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
         pointer-events: none;
-        z-index: 9999;
-        opacity: 0.15;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        animation: grain 0.5s steps(10) infinite;
+        z-index: 9998;
+        opacity: 0.08;
+        mix-blend-mode: overlay;
       `;
-      document.body.appendChild(grainOverlay);
+      canvas.id = 'fallout-grain-canvas';
       
-      // Add grain animation keyframes
-      const style = document.createElement('style');
-      style.textContent = `
-        @keyframes grain {
-          0%, 100% { transform: translate(0, 0); }
-          10% { transform: translate(-5%, -5%); }
-          20% { transform: translate(-10%, 5%); }
-          30% { transform: translate(5%, -10%); }
-          40% { transform: translate(-5%, 15%); }
-          50% { transform: translate(-10%, 5%); }
-          60% { transform: translate(15%, 0); }
-          70% { transform: translate(0, 10%); }
-          80% { transform: translate(-15%, 0); }
-          90% { transform: translate(10%, 5%); }
-        }
-      `;
-      document.head.appendChild(style);
+      const ctx = canvas.getContext('2d');
+      if (ctx) {
+        const noise = () => {
+          const imageData = ctx.createImageData(canvas.width, canvas.height);
+          for (let i = 0; i < imageData.data.length; i += 4) {
+            const color = Math.random() * 255;
+            imageData.data[i] = color;
+            imageData.data[i + 1] = color;
+            imageData.data[i + 2] = color;
+            imageData.data[i + 3] = 255;
+          }
+          ctx.putImageData(imageData, 0, 0);
+        };
+        
+        const interval = setInterval(noise, 100);
+        canvas.dataset.intervalId = String(interval);
+      }
+      
+      document.body.appendChild(canvas);
+      document.body.appendChild(grainOverlay);
     } else {
       document.body.style.filter = "";
       document.body.style.transition = "";
       
-      // Remove grain overlay
+      // Remove grain overlays
       const grainOverlay = document.getElementById('fallout-grain');
-      if (grainOverlay) {
-        grainOverlay.remove();
+      const grainCanvas = document.getElementById('fallout-grain-canvas');
+      
+      if (grainCanvas && grainCanvas.dataset.intervalId) {
+        clearInterval(Number(grainCanvas.dataset.intervalId));
       }
+      
+      if (grainOverlay) grainOverlay.remove();
+      if (grainCanvas) grainCanvas.remove();
     }
 
     return () => {
       document.body.style.filter = "";
       document.body.style.transition = "";
+      
       const grainOverlay = document.getElementById('fallout-grain');
-      if (grainOverlay) {
-        grainOverlay.remove();
+      const grainCanvas = document.getElementById('fallout-grain-canvas');
+      
+      if (grainCanvas && grainCanvas.dataset.intervalId) {
+        clearInterval(Number(grainCanvas.dataset.intervalId));
       }
+      
+      if (grainOverlay) grainOverlay.remove();
+      if (grainCanvas) grainCanvas.remove();
     };
   }, [isActive]);
 
