@@ -2,10 +2,18 @@ import { useEffect, useRef, useState } from "react";
 import viandenCastle from "@/assets/vianden-castle.jpg";
 import oldTown from "@/assets/old-town.jpg";
 import mullerthal from "@/assets/mullerthal.jpg";
+import ImageLightbox from "./ImageLightbox";
 
 const ActivitiesSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState({ src: "", alt: "" });
   const sectionRef = useRef<HTMLDivElement>(null);
+
+  const openLightbox = (src: string, alt: string) => {
+    setSelectedImage({ src, alt });
+    setLightboxOpen(true);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -81,7 +89,10 @@ const ActivitiesSection = () => {
               }`}
               style={{ transitionDelay: `${index * 0.2}s` }}
             >
-              <div className="md:w-1/2 overflow-hidden rounded-3xl shadow-2xl group transition-all duration-500 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] hover:-translate-y-1">
+              <div 
+                className="md:w-1/2 overflow-hidden rounded-3xl shadow-2xl group transition-all duration-500 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] hover:-translate-y-1 cursor-pointer"
+                onClick={() => openLightbox(activity.image, activity.title)}
+              >
                 <img
                   src={activity.image}
                   alt={activity.title}
@@ -116,6 +127,13 @@ const ActivitiesSection = () => {
           ))}
         </div>
       </div>
+
+      <ImageLightbox
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+        imageSrc={selectedImage.src}
+        imageAlt={selectedImage.alt}
+      />
     </section>
   );
 };
